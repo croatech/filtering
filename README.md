@@ -24,7 +24,7 @@ All you need to do is inherit custom filter service from `Filtering::Base` and d
 ### Example filter service
 
 ```
-class Filters::OffersFilter < Filtering::Base
+class Filters::UsersFilter < Filtering::Base
   def initialize(params, page)
     super(params, page)
   end
@@ -66,7 +66,7 @@ Controller usage example:
 
 ```
 def index
-  render json: Filters::OffersFilter.new(params, params[:page]).call
+  render json: Filters::UsersFilter.new(params, params[:page]).call
 end
 ```
 If you don't use Kaminari just delete page from initializer
