@@ -37,7 +37,7 @@ class Filters::UsersFilter < Filtering::Base
     User.all
   end
 
-  def simple_acessible_params
+  def plain_acessible_params
     %i[city age]
   end
 
