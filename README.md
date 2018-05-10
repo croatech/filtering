@@ -53,23 +53,23 @@ class Filters::OffersFilter < Filtering::Base
 end
 
 ```
-There are required private methods:
+There are private methods:
 
 `relation` is an ActiveRecord initial relation which must be filtered
 
-`plain_acessible_params` array of params for auto-filtering by `where`, so if you have `%i[city age]` will be called `User.where(city: city).where(age: age)`
+`plain_acessible_params` array of params for an auto-filtering by `where`, so if you have `%i[city age]` will be called `User.where(city: city).where(age: age)`
 
-`complex_acessible_params` array of params for filters with custom logic. If you have some params in that method you have to create methods for those custom filters by format: `filter_by_{param}`
+`complex_acessible_params` array of params for filters with custom logic. If you have some params in that method you have to create methods for those custom filters with format: `filter_by_{param}`
 
 ### Calling
-Feel free to call new service wherever you want. For example in controller:
+Controller usage example:
 
 ```
 def index
   render json: Filters::OffersFilter.new(params, params[:page]).call
 end
 ```
-If you don't use caminari just delete page from initializer
+If you don't use Kaminari just delete page from initializer
 
 ## License
 
