@@ -1,7 +1,7 @@
 class Filtering::Base
   def initialize(params, args = {})
-    @plain_params = params.permit(plain_acessible_params)
-    @complex_params = params.permit(complex_acessible_params)
+    @plain_params = params.permit(plain_acessible_params) unless plain_acessible_params.empty?
+    @complex_params = params.permit(complex_acessible_params) unless complex_acessible_params.empty?
     @page = args[:page]
     @results = relation
   end
