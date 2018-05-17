@@ -66,10 +66,10 @@ Controller usage example:
 
 ```
 def index
-  render json: Filters::UsersFilter.new(params, page: params[:page], order: :asc).call
+  render json: Filters::UsersFilter.new(params, page: params[:page], order: 'id DESC').call
 end
 ```
-If you don't use Kaminari just delete page from initializer
+If you don't use Kaminari just delete page from initializer, the same with order param
 
 ## License
 
