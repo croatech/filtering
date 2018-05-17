@@ -48,7 +48,7 @@ class Filters::UsersFilter < Filtering::Base
   # Complex filters
 
   def filter_by_name(name)
-    results.where('name ILIKE ? or name_auto ILIKE ?', "%#{name}%", "%#{name}%")
+    result.where('name ILIKE ? or name_auto ILIKE ?', "%#{name}%", "%#{name}%")
   end
 end
 
