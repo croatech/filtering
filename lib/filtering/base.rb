@@ -14,13 +14,14 @@ class Filtering::Base
 
     paginate if result.respond_to?(:page)
     ordering if order.present?
+    grouping if group.present?
 
     return result
   end
 
   protected
 
-  attr_reader :plain_params, :complex_params, :page, :order, :result
+  attr_reader :plain_params, :complex_params, :page, :order, :group, :result
 
   def relation
     raise 'relation method not implemented. Add this method to calling class and add AR relation, for example Model.all'
@@ -73,5 +74,9 @@ class Filtering::Base
 
   def ordering
     @result = result.order(order)
+  end
+
+  def grouping
+    @result = result.group(group)
   end
 end
