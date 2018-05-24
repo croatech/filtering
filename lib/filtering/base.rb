@@ -12,7 +12,7 @@ class Filtering::Base
     filter_by_plain_params unless plain_params.empty?
     filter_by_complex_params unless complex_params.empty?
 
-    paginate if result.respond_to?(:page)
+    paginate if page.present? && result.respond_to?(:page)
     ordering if order.present?
     grouping if group.present?
 
