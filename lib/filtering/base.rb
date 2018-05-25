@@ -1,5 +1,6 @@
 class Filtering::Base
   def initialize(params, args = {})
+    @params = params
     @plain_params = permit(params, plain_acessible_params)
     @complex_params = permit(params, complex_acessible_params)
     @page = args[:page]
@@ -21,7 +22,7 @@ class Filtering::Base
 
   protected
 
-  attr_reader :plain_params, :complex_params, :page, :order, :group, :result
+  attr_reader :params, :plain_params, :complex_params, :page, :order, :group, :result
 
   def relation
     raise 'relation method not implemented. Add this method to calling class and add AR relation, for example Model.all'
