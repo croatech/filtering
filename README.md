@@ -1,6 +1,6 @@
 # Filtering
 
-Gem for comfort filtering of ActiveRecord queries.
+Gem for comfortable filtering of ActiveRecord queries.
 
 ## Installation
 
